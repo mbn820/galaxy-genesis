@@ -1,0 +1,29 @@
+[gd_scene load_steps=5 format=3 uid="uid://ban037mjwc53h"]
+
+[ext_resource type="Script" path="res://scenes/enemy/enemy.gd" id="1_rg41g"]
+[ext_resource type="Script" path="res://components/move_component.gd" id="2_alxn1"]
+[ext_resource type="Script" path="res://components/hit_box_component.gd" id="2_vr7ht"]
+[ext_resource type="Script" path="res://components/hurt_box_component.gd" id="3_dxc0h"]
+
+[node name="Enemy" type="Node2D"]
+script = ExtResource("1_rg41g")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+
+[node name="MoveComponent" type="Node" parent="." node_paths=PackedStringArray("actor")]
+script = ExtResource("2_alxn1")
+actor = NodePath("..")
+velocity = Vector2(0, 1)
+speed = 50.0
+
+[node name="HitBoxComponent" type="Area2D" parent="."]
+script = ExtResource("2_vr7ht")
+tag = "enemy"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBoxComponent"]
+
+[node name="HurtBoxComponent" type="Area2D" parent="."]
+script = ExtResource("3_dxc0h")
+tag = "enemy"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBoxComponent"]
