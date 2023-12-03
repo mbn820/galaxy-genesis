@@ -1,0 +1,27 @@
+[gd_scene load_steps=5 format=3 uid="uid://broy8iy17ip08"]
+
+[ext_resource type="Script" path="res://scenes/bullet/bullet.gd" id="1_6i2gf"]
+[ext_resource type="Texture2D" uid="uid://l1bgbyx5pcdh" path="res://assets/art/laser_small.png" id="1_xwrht"]
+[ext_resource type="Script" path="res://components/move_component.gd" id="2_wk702"]
+[ext_resource type="Script" path="res://components/scale_component.gd" id="4_mstr8"]
+
+[node name="Bullet" type="Node2D"]
+script = ExtResource("1_6i2gf")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_xwrht")
+
+[node name="MoveComponent" type="Node" parent="." node_paths=PackedStringArray("actor")]
+script = ExtResource("2_wk702")
+actor = NodePath("..")
+velocity = Vector2(0, -1)
+speed = 200.0
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+position = Vector2(4.76837e-07, 1)
+scale = Vector2(0.2, 0.4)
+
+[node name="ScaleComponent" type="Node" parent="."]
+script = ExtResource("4_mstr8")
+scale_value = Vector2(2, 2)
+scale_duration = 1.0
