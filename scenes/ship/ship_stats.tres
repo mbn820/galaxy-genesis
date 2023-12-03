@@ -5,4 +5,4 @@
 [resource]
 script = ExtResource("1_4akqp")
 speed = 150.0
-fire_rate_seconds = 0.3
+fire_rate_seconds = 0.4
