@@ -1,0 +1,64 @@
+[gd_scene load_steps=10 format=3 uid="uid://bt6xbpg061ioo"]
+
+[ext_resource type="Script" path="res://scripts/components/move_component.gd" id="1_dpogt"]
+[ext_resource type="Script" path="res://scenes/ship/ship.gd" id="1_ljjri"]
+[ext_resource type="Script" path="res://scripts/components/move_input_component.gd" id="3_615lj"]
+[ext_resource type="Resource" uid="uid://lxq4j1fm3lso" path="res://scenes/ship/ship_stats.tres" id="3_sf6jd"]
+[ext_resource type="Texture2D" uid="uid://b5vknd3yo2vx5" path="res://assets/art/ship.png" id="5_fqac2"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gl31s"]
+atlas = ExtResource("5_fqac2")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yqdpb"]
+atlas = ExtResource("5_fqac2")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a026i"]
+atlas = ExtResource("5_fqac2")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_f2e4m"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gl31s")
+}],
+"loop": true,
+"name": &"bank_left",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yqdpb")
+}],
+"loop": true,
+"name": &"bank_right",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a026i")
+}],
+"loop": true,
+"name": &"center",
+"speed": 10.0
+}]
+
+[node name="Ship" type="CharacterBody2D"]
+script = ExtResource("1_ljjri")
+
+[node name="MoveComponent" type="Node" parent="." node_paths=PackedStringArray("actor")]
+script = ExtResource("1_dpogt")
+actor = NodePath("..")
+ship_stats = ExtResource("3_sf6jd")
+
+[node name="MoveInputComponent" type="Node" parent="." node_paths=PackedStringArray("move_component")]
+script = ExtResource("3_615lj")
+move_component = NodePath("../MoveComponent")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_f2e4m")
+animation = &"center"
+autoplay = "center"
+frame_progress = 0.715665
