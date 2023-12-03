@@ -1,7 +1,8 @@
 [gd_resource type="Resource" script_class="ShipStats" load_steps=2 format=3 uid="uid://lxq4j1fm3lso"]
 
-[ext_resource type="Script" path="res://scripts/components/ship_stats.gd" id="1_y44b0"]
+[ext_resource type="Script" path="res://components/ship_stats.gd" id="1_4akqp"]
 
 [resource]
-script = ExtResource("1_y44b0")
+script = ExtResource("1_4akqp")
 speed = 150.0
+fire_rate_seconds = 0.3
