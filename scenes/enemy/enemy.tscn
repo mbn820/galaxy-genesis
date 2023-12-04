@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://ban037mjwc53h"]
+[gd_scene load_steps=10 format=3 uid="uid://ban037mjwc53h"]
 
 [ext_resource type="Script" path="res://scenes/enemy/enemy.gd" id="1_rg41g"]
 [ext_resource type="Script" path="res://components/move_component.gd" id="2_alxn1"]
@@ -8,6 +8,7 @@
 [ext_resource type="Material" uid="uid://5qm843o61quh" path="res://assets/effects/red_flash.tres" id="6_vwo6u"]
 [ext_resource type="Script" path="res://components/spawner_component.gd" id="7_mgexv"]
 [ext_resource type="PackedScene" uid="uid://cyuuwgnng11j4" path="res://scenes/effects/explosion.tscn" id="8_onbx0"]
+[ext_resource type="AudioStream" uid="uid://d14d1hprinnco" path="res://assets/sounds/hit_sound.wav" id="9_4em4n"]
 
 [node name="Enemy" type="Node2D"]
 script = ExtResource("1_rg41g")
@@ -41,3 +42,7 @@ sprite = NodePath("../AnimatedSprite2D")
 [node name="ExplosionSpawnerComponent" type="Node2D" parent="."]
 script = ExtResource("7_mgexv")
 scene = ExtResource("8_onbx0")
+
+[node name="HitSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("9_4em4n")
+volume_db = -9.369

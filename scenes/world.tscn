@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://1ns55go3vuxh"]
+[gd_scene load_steps=5 format=3 uid="uid://1ns55go3vuxh"]
 
 [ext_resource type="PackedScene" uid="uid://bt6xbpg061ioo" path="res://scenes/ship/ship.tscn" id="1_b5hx7"]
+[ext_resource type="AudioStream" uid="uid://1hsc302y6vaa" path="res://assets/sounds/music.ogg" id="2_rpdpu"]
 [ext_resource type="PackedScene" uid="uid://kxqfacy1jtmg" path="res://scenes/space_background.tscn" id="2_s1q68"]
 [ext_resource type="PackedScene" uid="uid://bvuelx75uc24g" path="res://scenes/enemy/green_alien.tscn" id="3_sd020"]
 
@@ -9,6 +10,11 @@ y_sort_enabled = true
 
 [node name="SpaceBackground" parent="." instance=ExtResource("2_s1q68")]
 scroll_speed = 25.0
+
+[node name="BackgroundMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_rpdpu")
+volume_db = -14.991
+autoplay = true
 
 [node name="Ship" parent="." instance=ExtResource("1_b5hx7")]
 position = Vector2(82, 191)

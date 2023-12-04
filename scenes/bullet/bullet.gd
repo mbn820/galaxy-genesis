@@ -7,6 +7,7 @@ extends Node2D
 
 func _ready() -> void:
 	scale_component.tween_scale(self)
+	
 	# remove object when out of view or if an enemy is hit
 	visible_on_screen_notifier_2d.screen_exited.connect(queue_free)
 	hit_box_component.hurtbox_entered.connect(func(hurtbox: HurtBoxComponent):

@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://bt6xbpg061ioo"]
+[gd_scene load_steps=26 format=3 uid="uid://bt6xbpg061ioo"]
 
 [ext_resource type="Script" path="res://scenes/ship/ship.gd" id="1_ljjri"]
 [ext_resource type="Script" path="res://components/move_component.gd" id="2_ipv1m"]
@@ -12,6 +12,7 @@
 [ext_resource type="Script" path="res://components/flash_component.gd" id="10_8v7vc"]
 [ext_resource type="Material" uid="uid://bm2ua6uipktko" path="res://assets/effects/white_flash.tres" id="11_sy5nf"]
 [ext_resource type="Script" path="res://components/hurt_box_component.gd" id="12_1yi03"]
+[ext_resource type="Script" path="res://components/position_clamp_component.gd" id="13_lesue"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_gl31s"]
 atlas = ExtResource("5_fqac2")
@@ -168,3 +169,9 @@ tag = "ship"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBoxComponent"]
 shape = SubResource("RectangleShape2D_7elsb")
+
+[node name="PositionClampComponent" type="Node" parent="." node_paths=PackedStringArray("actor")]
+script = ExtResource("13_lesue")
+actor = NodePath("..")
+top_margin = 30
+bottom_margin = 25
