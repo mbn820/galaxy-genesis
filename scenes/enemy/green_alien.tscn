@@ -33,13 +33,13 @@ animations = [{
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_oyu8p"]
-radius = 8.0
+radius = 7.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_dbmat"]
-radius = 5.09902
+radius = 9.0
 
 [node name="GreenAlien" instance=ExtResource("1_g34t3")]
-health = 8.0
+health = 100.0
 
 [node name="AnimatedSprite2D" parent="." index="0"]
 sprite_frames = SubResource("SpriteFrames_r81cs")
@@ -48,6 +48,9 @@ frame_progress = 0.859521
 
 [node name="MoveComponent" parent="." index="1"]
 speed = 25.0
+
+[node name="HitBoxComponent" parent="." index="2"]
+hit_rate_seconds = 0.2
 
 [node name="CollisionShape2D" parent="HitBoxComponent" index="0"]
 shape = SubResource("CircleShape2D_oyu8p")

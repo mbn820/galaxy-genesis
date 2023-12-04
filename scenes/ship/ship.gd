@@ -10,12 +10,18 @@ extends Node2D
 @onready var right_cannon: SpawnerComponent = $RightCannon as SpawnerComponent
 @onready var fire_rate_timer: Timer = $FireRateTimer
 @onready var scale_component: ScaleComponent = $ScaleComponent as ScaleComponent
+@onready var flash_component: FlashComponent = $FlashComponent as FlashComponent
+@onready var hurt_box_component: HurtBoxComponent = $HurtBoxComponent as HurtBoxComponent
 
 func _ready() -> void:
 	move_component.speed = ship_stats.speed
 	
 	fire_rate_timer.wait_time = ship_stats.fire_rate_seconds
 	fire_rate_timer.timeout.connect(fire_cannons)
+	hurt_box_component.hitbox_entered.connect(func(hitbox: HitBoxComponent):
+		if hitbox.tag == 'enemy':
+			receive_damage(hitbox.damage)
+	)
 
 func _physics_process(delta: float) -> void:
 	animate_ship()
@@ -36,3 +42,7 @@ func fire_cannons() -> void:
 	
 	left_cannon.spawn()
 	right_cannon.spawn()
+	
+func receive_damage(damage: float):
+	# TODO: damage calc
+	flash_component.flash()

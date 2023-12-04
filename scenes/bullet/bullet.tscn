@@ -33,7 +33,7 @@ scale_duration = 1.0
 [node name="HitBoxComponent" type="Area2D" parent="."]
 script = ExtResource("5_makuw")
 tag = "projectile"
-damage = 2.0
+damage = 20.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitBoxComponent"]
 position = Vector2(0, 1)

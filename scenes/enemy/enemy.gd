@@ -6,6 +6,7 @@ extends Node2D
 @onready var hit_box_component: HitBoxComponent = $HitBoxComponent as HitBoxComponent
 @onready var hurt_box_component: HurtBoxComponent = $HurtBoxComponent as HurtBoxComponent
 @onready var flash_component: FlashComponent = $FlashComponent as FlashComponent
+@onready var explosion_spawner_component: SpawnerComponent = $ExplosionSpawnerComponent as SpawnerComponent
 
 func _ready() -> void:
 	hurt_box_component.hitbox_entered.connect(func(hitbox: HitBoxComponent):
@@ -17,4 +18,8 @@ func receive_damage(damage: float) -> void:
 	health -= damage
 	flash_component.flash()
 	if (health <= 0):
-		queue_free()
+		destroy()
+		
+func destroy() -> void:
+	explosion_spawner_component.spawn()
+	queue_free()

@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://bt6xbpg061ioo"]
+[gd_scene load_steps=25 format=3 uid="uid://bt6xbpg061ioo"]
 
 [ext_resource type="Script" path="res://scenes/ship/ship.gd" id="1_ljjri"]
 [ext_resource type="Script" path="res://components/move_component.gd" id="2_ipv1m"]
@@ -9,6 +9,9 @@
 [ext_resource type="Script" path="res://components/spawner_component.gd" id="6_4sqlt"]
 [ext_resource type="PackedScene" uid="uid://broy8iy17ip08" path="res://scenes/bullet/bullet.tscn" id="7_ns7yi"]
 [ext_resource type="Script" path="res://components/scale_component.gd" id="8_5n1t7"]
+[ext_resource type="Script" path="res://components/flash_component.gd" id="10_8v7vc"]
+[ext_resource type="Material" uid="uid://bm2ua6uipktko" path="res://assets/effects/white_flash.tres" id="11_sy5nf"]
+[ext_resource type="Script" path="res://components/hurt_box_component.gd" id="12_1yi03"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_gl31s"]
 atlas = ExtResource("5_fqac2")
@@ -109,6 +112,9 @@ animations = [{
 "speed": 10.0
 }]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7elsb"]
+size = Vector2(14, 12)
+
 [node name="Ship" type="Node2D"]
 script = ExtResource("1_ljjri")
 ship_stats = ExtResource("3_sf6jd")
@@ -145,8 +151,20 @@ script = ExtResource("6_4sqlt")
 scene = ExtResource("7_ns7yi")
 
 [node name="FireRateTimer" type="Timer" parent="."]
-wait_time = 0.5
+wait_time = 0.4
 autostart = true
 
 [node name="ScaleComponent" type="Node" parent="."]
 script = ExtResource("8_5n1t7")
+
+[node name="FlashComponent" type="Node" parent="." node_paths=PackedStringArray("sprite")]
+script = ExtResource("10_8v7vc")
+flash_effect = ExtResource("11_sy5nf")
+sprite = NodePath("../ShipSprite")
+
+[node name="HurtBoxComponent" type="Area2D" parent="."]
+script = ExtResource("12_1yi03")
+tag = "ship"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBoxComponent"]
+shape = SubResource("RectangleShape2D_7elsb")
