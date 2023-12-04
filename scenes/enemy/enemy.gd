@@ -5,6 +5,7 @@ extends Node2D
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 @onready var hit_box_component: HitBoxComponent = $HitBoxComponent as HitBoxComponent
 @onready var hurt_box_component: HurtBoxComponent = $HurtBoxComponent as HurtBoxComponent
+@onready var flash_component: FlashComponent = $FlashComponent as FlashComponent
 
 func _ready() -> void:
 	hurt_box_component.hitbox_entered.connect(func(hitbox: HitBoxComponent):
@@ -14,5 +15,6 @@ func _ready() -> void:
 	
 func receive_damage(damage: float) -> void:
 	health -= damage
+	flash_component.flash()
 	if (health <= 0):
 		queue_free()

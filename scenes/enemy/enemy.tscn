@@ -1,9 +1,11 @@
-[gd_scene load_steps=5 format=3 uid="uid://ban037mjwc53h"]
+[gd_scene load_steps=7 format=3 uid="uid://ban037mjwc53h"]
 
 [ext_resource type="Script" path="res://scenes/enemy/enemy.gd" id="1_rg41g"]
 [ext_resource type="Script" path="res://components/move_component.gd" id="2_alxn1"]
 [ext_resource type="Script" path="res://components/hit_box_component.gd" id="2_vr7ht"]
 [ext_resource type="Script" path="res://components/hurt_box_component.gd" id="3_dxc0h"]
+[ext_resource type="Script" path="res://components/flash_component.gd" id="5_q4o8j"]
+[ext_resource type="Material" uid="uid://5qm843o61quh" path="res://assets/effects/red_flash.tres" id="6_vwo6u"]
 
 [node name="Enemy" type="Node2D"]
 script = ExtResource("1_rg41g")
@@ -27,3 +29,8 @@ script = ExtResource("3_dxc0h")
 tag = "enemy"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBoxComponent"]
+
+[node name="FlashComponent" type="Node" parent="." node_paths=PackedStringArray("sprite")]
+script = ExtResource("5_q4o8j")
+flash_effect = ExtResource("6_vwo6u")
+sprite = NodePath("../AnimatedSprite2D")
