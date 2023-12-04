@@ -1,0 +1,78 @@
+[gd_scene load_steps=13 format=3 uid="uid://6hb5m7ebtpm5"]
+
+[ext_resource type="Script" path="res://scenes/projectiles/pink_projectile.gd" id="1_7r02u"]
+[ext_resource type="Texture2D" uid="uid://ci0q0hvtyd45h" path="res://assets/art/pink_enemy_projectile.png" id="1_wsx7u"]
+[ext_resource type="Script" path="res://components/move_component.gd" id="2_56vuj"]
+[ext_resource type="Script" path="res://components/hit_box_component.gd" id="3_0gm3d"]
+[ext_resource type="Script" path="res://components/hurt_box_component.gd" id="4_6lfsf"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gkfhh"]
+atlas = ExtResource("1_wsx7u")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fao78"]
+atlas = ExtResource("1_wsx7u")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_raolw"]
+atlas = ExtResource("1_wsx7u")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i72fg"]
+atlas = ExtResource("1_wsx7u")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_q46se"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gkfhh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fao78")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_raolw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i72fg")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_bd7cq"]
+radius = 4.12311
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_1n2og"]
+radius = 5.0
+
+[node name="PinkProjectile" type="Node2D"]
+script = ExtResource("1_7r02u")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_q46se")
+autoplay = "default"
+frame_progress = 0.142792
+
+[node name="MoveComponent" type="Node" parent="." node_paths=PackedStringArray("actor")]
+script = ExtResource("2_56vuj")
+actor = NodePath("..")
+velocity = Vector2(0, 1)
+speed = 50.0
+
+[node name="HitBoxComponent" type="Area2D" parent="."]
+script = ExtResource("3_0gm3d")
+tag = "enemy"
+damage = 20.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBoxComponent"]
+shape = SubResource("CircleShape2D_bd7cq")
+
+[node name="HurtBoxComponent" type="Area2D" parent="."]
+script = ExtResource("4_6lfsf")
+tag = "enemy"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBoxComponent"]
+shape = SubResource("CircleShape2D_1n2og")

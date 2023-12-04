@@ -7,8 +7,8 @@
 [ext_resource type="Texture2D" uid="uid://dkh6e0wi1pujt" path="res://assets/art/ship_flame.png" id="4_dehct"]
 [ext_resource type="Texture2D" uid="uid://b5vknd3yo2vx5" path="res://assets/art/ship.png" id="5_fqac2"]
 [ext_resource type="Script" path="res://components/spawner_component.gd" id="6_4sqlt"]
-[ext_resource type="PackedScene" uid="uid://broy8iy17ip08" path="res://scenes/bullet/bullet.tscn" id="7_ns7yi"]
 [ext_resource type="Script" path="res://components/scale_component.gd" id="8_5n1t7"]
+[ext_resource type="PackedScene" uid="uid://broy8iy17ip08" path="res://scenes/projectiles/bullet.tscn" id="8_rqfyw"]
 [ext_resource type="Script" path="res://components/flash_component.gd" id="10_8v7vc"]
 [ext_resource type="Material" uid="uid://bm2ua6uipktko" path="res://assets/effects/white_flash.tres" id="11_sy5nf"]
 [ext_resource type="Script" path="res://components/hurt_box_component.gd" id="12_1yi03"]
@@ -144,12 +144,12 @@ move_component = NodePath("../MoveComponent")
 [node name="LeftCannon" type="Node2D" parent="."]
 position = Vector2(-5, -5)
 script = ExtResource("6_4sqlt")
-scene = ExtResource("7_ns7yi")
+scene = ExtResource("8_rqfyw")
 
 [node name="RightCannon" type="Node2D" parent="."]
 position = Vector2(5, -5)
 script = ExtResource("6_4sqlt")
-scene = ExtResource("7_ns7yi")
+scene = ExtResource("8_rqfyw")
 
 [node name="FireRateTimer" type="Timer" parent="."]
 wait_time = 0.4

@@ -41,7 +41,7 @@ frame = 1
 frame_progress = 0.988445
 
 [node name="MoveComponent" parent="." index="1"]
-speed = 30.0
+speed = 20.0
 
 [node name="CollisionShape2D" parent="HitBoxComponent" index="0"]
 shape = SubResource("RectangleShape2D_popis")
