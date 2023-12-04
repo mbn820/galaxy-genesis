@@ -1,0 +1,50 @@
+[gd_scene load_steps=8 format=3 uid="uid://devny53qidn33"]
+
+[ext_resource type="PackedScene" uid="uid://ban037mjwc53h" path="res://scenes/enemy/enemy.tscn" id="1_lblh7"]
+[ext_resource type="Texture2D" uid="uid://boho6qw1fgddr" path="res://assets/art/yellow_enemy.png" id="2_8rx7h"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xn3x1"]
+atlas = ExtResource("2_8rx7h")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lm8gk"]
+atlas = ExtResource("2_8rx7h")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_78m16"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xn3x1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lm8gk")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_popis"]
+size = Vector2(14, 8)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7wfak"]
+size = Vector2(16, 10)
+
+[node name="YellowAlien" instance=ExtResource("1_lblh7")]
+health = 300.0
+
+[node name="AnimatedSprite2D" parent="." index="0"]
+sprite_frames = SubResource("SpriteFrames_78m16")
+autoplay = "default"
+frame = 1
+frame_progress = 0.988445
+
+[node name="MoveComponent" parent="." index="1"]
+speed = 30.0
+
+[node name="CollisionShape2D" parent="HitBoxComponent" index="0"]
+shape = SubResource("RectangleShape2D_popis")
+
+[node name="CollisionShape2D" parent="HurtBoxComponent" index="0"]
+shape = SubResource("RectangleShape2D_7wfak")

@@ -47,7 +47,7 @@ autoplay = "default"
 frame_progress = 0.859521
 
 [node name="MoveComponent" parent="." index="1"]
-speed = 25.0
+speed = 20.0
 
 [node name="HitBoxComponent" parent="." index="2"]
 hit_rate_seconds = 0.2

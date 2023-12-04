@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://bt6xbpg061ioo" path="res://scenes/ship/ship.tscn" id="1_b5hx7"]
 [ext_resource type="AudioStream" uid="uid://1hsc302y6vaa" path="res://assets/sounds/music.ogg" id="2_rpdpu"]
 [ext_resource type="PackedScene" uid="uid://kxqfacy1jtmg" path="res://scenes/space_background.tscn" id="2_s1q68"]
-[ext_resource type="PackedScene" uid="uid://bvuelx75uc24g" path="res://scenes/enemy/green_alien.tscn" id="3_sd020"]
+[ext_resource type="PackedScene" uid="uid://cp73w023ur1iy" path="res://scenes/enemy/enemy_generator.tscn" id="4_j2l04"]
 
 [node name="World" type="Node2D"]
 y_sort_enabled = true
@@ -19,11 +19,5 @@ autoplay = true
 [node name="Ship" parent="." instance=ExtResource("1_b5hx7")]
 position = Vector2(82, 191)
 
-[node name="GreenAlien" parent="." instance=ExtResource("3_sd020")]
-position = Vector2(27, 40)
-
-[node name="GreenAlien2" parent="." instance=ExtResource("3_sd020")]
-position = Vector2(86, 35)
-
-[node name="GreenAlien3" parent="." instance=ExtResource("3_sd020")]
-position = Vector2(127, 29)
+[node name="EnemyGenerator" parent="." instance=ExtResource("4_j2l04")]
+position = Vector2(80, -23)

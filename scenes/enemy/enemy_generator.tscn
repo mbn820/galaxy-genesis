@@ -1,0 +1,37 @@
+[gd_scene load_steps=6 format=3 uid="uid://cp73w023ur1iy"]
+
+[ext_resource type="Script" path="res://components/spawner_component.gd" id="1_jldhd"]
+[ext_resource type="Script" path="res://scenes/enemy/enemy_generator.gd" id="1_xbvyf"]
+[ext_resource type="PackedScene" uid="uid://bvuelx75uc24g" path="res://scenes/enemy/green_alien.tscn" id="2_e81c4"]
+[ext_resource type="PackedScene" uid="uid://devny53qidn33" path="res://scenes/enemy/yellow_alien.tscn" id="4_c6taa"]
+[ext_resource type="PackedScene" uid="uid://ccvt7clyu341c" path="res://scenes/enemy/pink_alien.tscn" id="5_3i046"]
+
+[node name="EnemyGenerator" type="Node2D"]
+script = ExtResource("1_xbvyf")
+
+[node name="GreenAlienSpawner" type="Node2D" parent="."]
+script = ExtResource("1_jldhd")
+scene = ExtResource("2_e81c4")
+
+[node name="YellowAlienSpawner" type="Node2D" parent="."]
+script = ExtResource("1_jldhd")
+scene = ExtResource("4_c6taa")
+
+[node name="PinkAlienSpawner" type="Node2D" parent="."]
+script = ExtResource("1_jldhd")
+scene = ExtResource("5_3i046")
+
+[node name="SpawnPoint" type="Marker2D" parent="."]
+position = Vector2(0, 8)
+
+[node name="SpawnPoint2" type="Marker2D" parent="."]
+position = Vector2(22, 8)
+
+[node name="SpawnPoint3" type="Marker2D" parent="."]
+position = Vector2(-23, 8)
+
+[node name="SpawnPoint4" type="Marker2D" parent="."]
+position = Vector2(-48, 8)
+
+[node name="SpawnPoint5" type="Marker2D" parent="."]
+position = Vector2(48, 8)

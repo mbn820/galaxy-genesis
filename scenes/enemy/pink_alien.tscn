@@ -1,0 +1,70 @@
+[gd_scene load_steps=11 format=3 uid="uid://ccvt7clyu341c"]
+
+[ext_resource type="PackedScene" uid="uid://ban037mjwc53h" path="res://scenes/enemy/enemy.tscn" id="1_p0imw"]
+[ext_resource type="Texture2D" uid="uid://mf2t1kov21d3" path="res://assets/art/pink_enemy.png" id="2_jdy18"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hg4tm"]
+atlas = ExtResource("2_jdy18")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_go7ch"]
+atlas = ExtResource("2_jdy18")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_efic3"]
+atlas = ExtResource("2_jdy18")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mju3m"]
+atlas = ExtResource("2_jdy18")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8ejkd"]
+atlas = ExtResource("2_jdy18")
+region = Rect2(64, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_o3cln"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hg4tm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_go7ch")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_efic3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mju3m")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8ejkd")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_3xh1i"]
+radius = 5.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_rq6r8"]
+radius = 7.0
+
+[node name="PinkAlien" instance=ExtResource("1_p0imw")]
+health = 200.0
+
+[node name="AnimatedSprite2D" parent="." index="0"]
+sprite_frames = SubResource("SpriteFrames_o3cln")
+autoplay = "default"
+frame_progress = 0.335664
+
+[node name="MoveComponent" parent="." index="1"]
+speed = 35.0
+
+[node name="CollisionShape2D" parent="HitBoxComponent" index="0"]
+shape = SubResource("CircleShape2D_3xh1i")
+
+[node name="CollisionShape2D" parent="HurtBoxComponent" index="0"]
+shape = SubResource("CircleShape2D_rq6r8")
