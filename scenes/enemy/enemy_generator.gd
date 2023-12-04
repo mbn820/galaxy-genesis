@@ -16,6 +16,7 @@ var timer: Timer = Timer.new()
 var spawn_rate_seconds: float = 2.0
 
 func _ready() -> void:
+	randomize()
 	add_child(timer)
 	timer.start(spawn_rate_seconds)
 	timer.timeout.connect(generate_random_enemy)

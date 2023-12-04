@@ -7,7 +7,10 @@ extends Node2D
 func _ready() -> void:
 	hurt_box_component.hitbox_entered.connect(func(hitbox: HitBoxComponent):
 		if hitbox.tag == 'projectile':
-			health -= hitbox.damage
-			if (health <= 0):
-				queue_free()
+			receive_damage(hitbox.damage)
 	)
+	
+func receive_damage(damage: float) -> void:
+	health -= damage
+	if (health <= 0):
+		queue_free()

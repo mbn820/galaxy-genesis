@@ -54,7 +54,7 @@ script = ExtResource("1_7r02u")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_q46se")
 autoplay = "default"
-frame_progress = 0.142792
+frame_progress = 0.527678
 
 [node name="MoveComponent" type="Node" parent="." node_paths=PackedStringArray("actor")]
 script = ExtResource("2_56vuj")
