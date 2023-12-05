@@ -7,11 +7,11 @@
 
 [node name="SpaceBackground" type="ParallaxBackground"]
 script = ExtResource("1_fhurq")
-scroll_speed = 0.2
+scroll_speed = 10.0
 
 [node name="SpaceLayer" type="ParallaxLayer" parent="."]
 motion_scale = Vector2(0.5, 0.5)
-motion_mirroring = Vector2(0, 240)
+motion_mirroring = Vector2(160, 240)
 
 [node name="Space" type="TextureRect" parent="SpaceLayer"]
 offset_right = 160.0
@@ -20,7 +20,7 @@ texture = ExtResource("2_g4va8")
 stretch_mode = 1
 
 [node name="FarStarsLayer" type="ParallaxLayer" parent="."]
-motion_mirroring = Vector2(0, 240)
+motion_mirroring = Vector2(160, 240)
 
 [node name="FarStars" type="TextureRect" parent="FarStarsLayer"]
 offset_right = 160.0
@@ -30,7 +30,7 @@ stretch_mode = 1
 
 [node name="CloseStarsLayer" type="ParallaxLayer" parent="."]
 motion_scale = Vector2(2, 2)
-motion_mirroring = Vector2(0, 240)
+motion_mirroring = Vector2(160, 240)
 
 [node name="CloseStars" type="TextureRect" parent="CloseStarsLayer"]
 offset_right = 160.0

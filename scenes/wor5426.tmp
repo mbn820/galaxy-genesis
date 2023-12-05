@@ -4,18 +4,10 @@
 [ext_resource type="AudioStream" uid="uid://1hsc302y6vaa" path="res://assets/sounds/music.ogg" id="2_rpdpu"]
 [ext_resource type="PackedScene" uid="uid://kxqfacy1jtmg" path="res://scenes/space_background.tscn" id="2_s1q68"]
 [ext_resource type="PackedScene" uid="uid://cp73w023ur1iy" path="res://scenes/enemy/enemy_generator.tscn" id="4_j2l04"]
-[ext_resource type="Script" path="res://scenes/score_label.gd" id="5_qxfh8"]
+[ext_resource type="Script" path="res://scenes/ScoreLabel.gd" id="5_qxfh8"]
 
 [node name="World" type="Node2D"]
 y_sort_enabled = true
-
-[node name="ScoreLabel" type="Label" parent="."]
-z_index = 100
-offset_right = 41.0
-offset_bottom = 14.0
-theme_override_font_sizes/font_size = 10
-text = "Score: 0"
-script = ExtResource("5_qxfh8")
 
 [node name="SpaceBackground" parent="." instance=ExtResource("2_s1q68")]
 scroll_speed = 25.0
@@ -30,3 +22,10 @@ position = Vector2(82, 191)
 
 [node name="EnemyGenerator" parent="." instance=ExtResource("4_j2l04")]
 position = Vector2(80, -23)
+
+[node name="ScoreLabel" type="Label" parent="."]
+offset_right = 41.0
+offset_bottom = 14.0
+theme_override_font_sizes/font_size = 10
+text = "Score: 0"
+script = ExtResource("5_qxfh8")

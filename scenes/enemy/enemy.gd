@@ -25,5 +25,6 @@ func receive_damage(damage: float) -> void:
 		destroy()
 		
 func destroy() -> void:
+	GlobalEvents.on_enemy_killed.emit(1)
 	explosion_spawner_component.spawn()
 	queue_free()
